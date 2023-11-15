@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar proveedor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/estilos2.css">
+</head>
+
+<body>
+  <div class="opacidadgral">
+  <nav th:replace="fragments/navbarprov::navp"></nav>
+
+  <h1 class="text-center">ProSkillFinder</h1>
+  <div class="modUsuario">
+    <form class="formularioUsua" th:object="${proveedor}" th:action="@{/proveedor/perfil/__${proveedor.id}__}"
+      method="POST" enctype="multipart/form-data">
+      <input hidden th:value="${id}" name="id">
+
+      <div class="">
+        <h3 class="ruh3">Editar Proveedor</h3>
+      </div>
+
+      <br />
+      <br>
+
+      <label class="textofp" for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" th:value="${proveedor.nombre}" required><br>
+
+      <label class="textofp" for="email">Email:</label>
+      <input type="email" id="email" name="email" th:value="${proveedor.email}" required><br>
+
+      <label class="textofp" for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required><br>
+
+      <label class="textofp" for="password2">Repita su contraseña:</label>
+      <input type="password" id="password2" name="password2" required><br>
+
+      <label class="textofp" for="telefono">Telefono:</label>
+      <input type="number" id="telefono" name="telefono" th:value="${proveedor.telefono}" required><br>
+
+      <label class="textofp" for="direccion">Direccion:</label>
+      <input type="text" id="direccion" name="direccion" th:value="${proveedor.direccion}" required><br>
+
+      <label class="textofp" for="honorarioHora">Honorario por Horas:</label>
+      <input type="number" id="honorarioHora" name="honorarioHora" th:value="${proveedor.honorarioHora}" required><br>
+
+      <label class="textofp" for="rubro">selecciona un rubro:</label>
+      <select id="rubro" name="rubro" th:field="*{rubro}">
+        <option value="Jardinero">Jardinero</option>
+        <option value="Chapista">Chapista</option>
+        <option value="Piletero">Piletero</option>
+        <option value="Salidor">Salidor</option>
+        <option value="Limpieza">Limpieza</option>
+      </select>
+
+      <br>
+      <label for="presentacion" id="pres">presentacion:</label>
+      <textarea id="presentacion" name="presentacion" rows="4" th:value="${proveedor.presentacion}" required></textarea>
+
+      <label class="textofp" type="file">Foto de perfil</label>
+      <input class="textofp" type="file" name="archivo">
+      <br>
+      <div class="divVolver">
+      <button type="submit" class="btn btn-primary mt-3 botones" id="botforUs">
+        Actualizar
+      </button></div>
+    </form>
+  </div>
+  <section class="botonVolver">
+    <div class="row mt-3">
+      <div class="divVolver">
+        <a th:href="@{/proveedor/panelProveedor}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="pie">
+    <div th:replace="fragments/footer::foot"></div>
+    <div th:replace="fragments/redesS::red_soc"></div>
+  </footer>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@
 	<name>proyectoFinalEggG2</name>
 	<description>Proyecto final de Egg, grupo 2</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 
